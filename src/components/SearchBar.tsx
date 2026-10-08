@@ -27,7 +27,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
       />
       <button 
         type="submit" 
-        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow-sm font-medium transition-colors"
+        className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded shadow-sm font-medium transition-colors"
       >
         Suchen
       </button>

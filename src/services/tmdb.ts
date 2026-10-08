@@ -29,7 +29,7 @@ export async function searchMovies(query: string): Promise<Movie[]> {
 }
 
 export async function getMovie(id: number): Promise<MovieDetails> {
-  const url = `${BASE_URL}/movie/${id}api_key=${API_KEY}`;
+  const url = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
 
   const res = await fetch(url);
   if (!res.ok) {

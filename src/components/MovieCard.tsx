@@ -3,11 +3,15 @@ import { posterUrl } from "../services/tmdb";
 
 type MovieCardProps = {
   movie: Movie;
+  onClick: (id: number) => void;
 };
 
-export default function MovieCard({ movie }: MovieCardProps) {
+export default function MovieCard({ movie, onClick }: MovieCardProps) {
   return (
-    <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col bg-white">
+    <div
+      onClick={() => onClick(movie.id)}
+      className="cursor-pointer border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col bg-white"
+    >
       <img
         src={posterUrl(movie.poster_path)}
         alt={`Poster für ${movie.title}`}
@@ -19,7 +23,10 @@ export default function MovieCard({ movie }: MovieCardProps) {
           Erschienen: {movie.release_date || "Unbekannt"}
         </p>
         <div className="text-yellow-600 font-bold">
-          ★ {movie.vote_average ? movie.vote_average.toFixed(1) : "Keine Bewertung"}
+          ★{" "}
+          {movie.vote_average
+            ? movie.vote_average.toFixed(1)
+            : "Keine Bewertung"}
         </div>
       </div>
     </div>
