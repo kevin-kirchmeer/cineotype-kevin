@@ -12,7 +12,7 @@ export default function MovieCard({ movie, onClick, isFavorite, onToggleFav }: M
   return (
     <div
       onClick={() => onClick(movie.id)}
-      className="relativ cursor-pointer border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col bg-white"
+      className="relative cursor-pointer border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col bg-white"
     >
       <img
         src={posterUrl(movie.poster_path)}
@@ -24,7 +24,7 @@ export default function MovieCard({ movie, onClick, isFavorite, onToggleFav }: M
           e.stopPropagation();
           if (onToggleFav) onToggleFav(movie);
         }}
-        className="absolute top-2 right-2 bg-white/80 hover:bg-white rounded-full p-2 shadow transition-colors"
+        className="absolute top-2 right-2 bg-white/80 hover:bg-white rounded-full p-2 shadow transition-colors cursor-pointer"
       >
         {isFavorite ? "❤️" : "🤍"}
       </button>
