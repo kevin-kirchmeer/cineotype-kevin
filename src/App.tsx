@@ -3,6 +3,7 @@ import SearchBar from "./components/SearchBar";
 import MovieList from "./components/MovieList";
 import MovieDetails from "./components/MovieDetails";
 import { useMovieSearch } from "./hooks/useMovieSearch";
+import { Spinner } from "./components/Feedback";
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -23,7 +24,7 @@ export default function App() {
         <>
           <SearchBar onSearch={setQuery} />
 
-          {loading && <p className="text-blue-500 font-bold text-center my-8">Filme werden geladen...</p>}
+          <Spinner />
           {error && <p className="text-red-500 bg-red-100 p-4 rounded text-center my-8">Fehler: {error}</p>}
 
           {!loading && !error && (
