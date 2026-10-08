@@ -4,6 +4,7 @@ import MovieList from "./components/MovieList";
 import MovieDetails from "./components/MovieDetails";
 import { useMovieSearch } from "./hooks/useMovieSearch";
 import { Spinner } from "./components/Feedback";
+import { useDebounce } from "./hooks/useDebounce";
 
 export default function App() {
   const [query, setQuery] = useState("");

@@ -4,11 +4,11 @@ import { posterUrl } from "../services/tmdb";
 type MovieCardProps = {
   movie: Movie;
   onClick: (id: number) => void;
-  isFavorit?: boolean;
+  isFavorite?: boolean;
   onToggleFav?: (movie: Movie) => void;
 };
 
-export default function MovieCard({ movie, onClick, isFavorit, onToggleFav }: MovieCardProps) {
+export default function MovieCard({ movie, onClick, isFavorite, onToggleFav }: MovieCardProps) {
   return (
     <div
       onClick={() => onClick(movie.id)}
