@@ -8,6 +8,8 @@ export function useMovieSearch(query: string) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let ignore = false;
+
     if (query.trim() === "") {
       setMovies([]);
       return;
@@ -19,15 +21,20 @@ export function useMovieSearch(query: string) {
 
       try {
         const results = await searchMovies(query);
-        setMovies(results);
+        if (!ignore) setMovies(results);
       } catch (err: unknown) {
-        setError(err instanceof Error ? err.message : "Unbekannter Fehler");
+        if (!ignore)
+          setError(err instanceof Error ? err.message : "Unbekannter Fehler");
       } finally {
-        setLoading(false);
+        if (!ignore) setLoading(false);
       }
     }
 
     load();
+
+    return () => {
+      ignore = true;
+    };
   }, [query]);
 
   return { movies, loading, error };

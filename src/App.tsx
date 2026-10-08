@@ -6,7 +6,8 @@ import { useMovieSearch } from "./hooks/useMovieSearch";
 
 export default function App() {
   const [query, setQuery] = useState("");
-  const { movies, loading, error } = useMovieSearch(query);
+  const debouncedQuery = useDebounce(query, 400);
+  const { movies, loading, error } = useMovieSearch(debouncedQuery);
   const [ selectedMovieId, setSelectedMovieId] = useState<number | null>(null)
 
   return (
