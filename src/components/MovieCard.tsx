@@ -19,7 +19,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
           Erschienen: {movie.release_date || "Unbekannt"}
         </p>
         <div className="text-yellow-600 font-bold">
-          ★ {movie.vote_average.toFixed(1)}
+          ★ {movie.vote_average ? movie.vote_average.toFixed(1) : "Keine Bewertung"}
         </div>
       </div>
     </div>
