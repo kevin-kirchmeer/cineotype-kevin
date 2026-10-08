@@ -28,8 +28,8 @@ export default function App() {
       ) : (
         <>
           <SearchBar onSearch={setQuery} />
+          {loading && <Spinner />}
 
-          <Spinner />
           {error && (
             <p className="text-red-500 bg-red-100 p-4 rounded text-center my-8">
               Fehler: {error}
