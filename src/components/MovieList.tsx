@@ -9,7 +9,7 @@ type MovieListProps = {
 };
 
 export default function MovieList({ movies, onMovieSelect, favorites, onToggleFav }: MovieListProps) {
-  if (movies.length === 0) {
+  if (!movies || movies.length === 0) {
     return <p className="text-gray-500 text-center mt-8">Keine Filme gefunden oder noch nichts gesucht.</p>;
   }
 

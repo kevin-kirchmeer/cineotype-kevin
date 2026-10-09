@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="max-w-5xl mx-auto p-4 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center text-red-900">
-        Cineotype
+        KINO GALLERY
       </h1>
 
       {selectedMovieId ? (
